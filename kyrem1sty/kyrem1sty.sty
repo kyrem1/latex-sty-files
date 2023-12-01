@@ -1,0 +1,188 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{kyrem1sty}[07/02/2023 Made by ME]
+
+%-----------PACKAGES-----------%
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{xspace}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{braket}
+\usepackage{multicol}
+\usepackage{mathtools}
+\usepackage{enumerate}
+\usepackage{delarray}
+\usepackage{mathtools}
+\usepackage{fullpage}
+\usepackage{faktor} % For quotients
+\usepackage{mathrsfs}
+\usepackage{hyperref}
+
+\usepackage[italicdiff]{physics} % For differentials
+\usepackage{bbm} % For indicator
+\usepackage{quiver}
+\usepackage{float}
+
+
+%--------AMSTHEOREM ENVS/STYLES--------%
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[subsection]
+\newtheorem{example}{Example}[subsection]
+\theoremstyle{plain}
+\newtheorem{lemma}{Lemma}[subsection]
+\newtheorem{corollary}{Corollary}[subsection]
+\newtheorem{theorem}{Theorem}[subsection]
+\newtheorem{maintheorem}{Theorem}[]
+\newtheorem{proposition}{Proposition}[subsection]
+\newtheorem{fact}{Fact}[subsection]
+\newtheorem{factexercise}{Fact/Exercise}[subsection]
+\newtheorem{exercise}{Exercise}[subsection]
+\theoremstyle{remark}
+\newtheorem*{claim}{Claim}
+\newtheorem{remark}{Remark}[subsection]
+
+\newenvironment{solution}
+{\begin{proof}[Solution]}
+{\end{proof}}
+
+
+
+%-----------MACROS-----------%
+
+\newcommand{\sub}{\subseteq}
+\newcommand{\lcm}{\text{lcm}}
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\mf}[1]{\mathfrak{#1}}
+\newcommand{\ms}[1]{\mathscr{#1}}
+\newcommand{\sO}{\mathcal{O}}
+\newcommand{\cyclic}[1]{\langle#1\rangle}
+\newcommand{\units}[1]{#1 ^{\times}}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+\newcommand{\lr}[1]{\left(#1\right)}
+\newcommand{\lrvert}[1]{\left\lvert#1\right\rvert}
+
+\DeclarePairedDelimiterX{\inp}[2]{\langle}{\rangle}{#1, #2}
+
+\newcommand{\usub}{\rightsquigarrow}
+
+
+\makeatletter
+\newcommand*{\bigcdot}{}% Check if undefined
+\DeclareRobustCommand*{\bigcdot}{%
+  \mathbin{\mathpalette\bigcdot@{}}%
+}
+\newcommand*{\bigcdot@scalefactor}{.5}
+\newcommand*{\bigcdot@widthfactor}{1.15}
+\newcommand*{\bigcdot@}[2]{%
+  % #1: math style
+  % #2: unused
+  \sbox0{$#1\vcenter{}$}% math axis
+  \sbox2{$#1\cdot\m@th$}%
+  \hbox to \bigcdot@widthfactor\wd2{%
+    \hfil
+    \raise\ht0\hbox{%
+      \scalebox{\bigcdot@scalefactor}{%
+        \lower\ht0\hbox{$#1\bullet\m@th$}%
+      }%
+    }%
+    \hfil
+  }%
+}
+\makeatother
+
+%----Switch phi and varphi
+\let\temp\phi
+\let\phi\varphi
+\let\varphi\temp
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\N}{\mathbb{N}\xspace}
+\newcommand{\I}{\mathbb{I}\xspace}
+\newcommand{\R}{\mathbb{R}\xspace}
+\newcommand{\Z}{\mathbb{Z}\xspace}
+\newcommand{\Q}{\mathbb{Q}\xspace}
+\newcommand{\G}{\mathbb{G}\xspace}
+\newcommand{\T}{\mathbb{T}}
+
+\newcommand{\D}{\mathcal{D}}
+\renewcommand{\S}{\mathscr{S}}
+
+\renewcommand{\H}{\mathcal{H}}
+\newcommand{\K}{\mathcal{K}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\rG}{\mathcal{G}}
+
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\res}{res}
+% \DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\Sym}{Sym}
+% \DeclareMathOperator{\dv}{div}
+\DeclareMathOperator{\alb}{alb}
+\DeclareMathOperator{\img}{Im}
+\DeclareMathOperator{\et}{et}
+\DeclareMathOperator{\ck}{coker}
+\DeclareMathOperator{\Reg}{Reg}
+\DeclareMathOperator{\Cor}{Cor}
+\DeclareMathOperator{\Ac}{at}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Pic}{Pic}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\fc}{frac}
+\DeclareMathOperator{\Ann}{Ann}
+\DeclareMathOperator{\Mod}{Mod}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\FI}{FI}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Alb}{Alb}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\ab}{ab}
+\DeclareMathOperator{\Jac}{Jac}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\fr}{frac}
+\DeclareMathOperator{\Int}{Int}
+\let\Span\relax
+\DeclareMathOperator{\Span}{Span}
+\DeclareMathOperator{\Ran}{Ran}
+\DeclareMathOperator{\ran}{ran}
+\DeclareMathOperator{\ext}{ext}
+\DeclareMathOperator{\Prob}{Prob}
+\DeclareMathOperator{\graph}{graph}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Ord}{Ord}
+\DeclareMathOperator{\pOrd}{p-Ord}
+\DeclareMathOperator{\Vect}{Vect}
+
+%----Analysis
+\newcommand{\summ}{\sum\limits}
+% \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\thicc}{\bigg}
+\newcommand{\eps}{\varepsilon}
+\newcommand*\cls[1]{\overline{#1}}
+\newcommand{\ind}{\mathbbm{1}}
+\DeclareMathOperator{\sgn}{sgn}
+\newcommand{\acts}{\curvearrowright}
+\let\div\relax
+\DeclareMathOperator{\div}{div}
+\newcommand{\brac}[1]{\langle#1\rangle}
+
+
+%---------ENVIRONMENTS-------------%
+
+\newcounter{partCounter}
+\newcounter{homeworkProblemCounter}
+\setcounter{homeworkProblemCounter}{1}
+\newenvironment{homeworkProblem}[1][-1]{
+    \ifnum#1>0
+        \setcounter{homeworkProblemCounter}{#1}
+    \fi
+    \section{Problem \arabic{homeworkProblemCounter}}
+    \setcounter{partCounter}{1}
+    \stepcounter{homeworkProblemCounter}
+}
+
+
+
