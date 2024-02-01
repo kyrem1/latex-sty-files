@@ -1,6 +1,11 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{kyrem1sty}[07/02/2023 Made by ME]
 
+
+% TODO Provide "noquiver" option to increase compatibility
+% TODO Provide barebones "nopak" option to remove need for a separate lite sty
+%
+
 %-----------PACKAGES-----------%
 \usepackage{amsmath, amsthm, amssymb}
 \usepackage{xspace}
@@ -17,17 +22,21 @@
 \usepackage{faktor} % For quotients
 \usepackage{mathrsfs}
 \usepackage{hyperref}
-
+\usepackage[normalem]{ulem} % For underlining
 \usepackage[italicdiff]{physics} % For differentials
 \usepackage{bbm} % For indicator
 \usepackage{quiver}
 \usepackage{float}
+\usepackage{stmaryrd} % for double brackets
 
 
 %--------AMSTHEOREM ENVS/STYLES--------%
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[subsection]
 \newtheorem{example}{Example}[subsection]
+\newtheorem{keyexample}{Key Example}[]
+\newtheorem*{keyexample*}{Key Example}
+\newtheorem*{notation*}{Notation}
 \theoremstyle{plain}
 \newtheorem{lemma}{Lemma}[subsection]
 \newtheorem{corollary}{Corollary}[subsection]
@@ -40,6 +49,7 @@
 \theoremstyle{remark}
 \newtheorem*{claim}{Claim}
 \newtheorem{remark}{Remark}[subsection]
+
 
 \newenvironment{solution}
 {\begin{proof}[Solution]}
@@ -114,6 +124,7 @@
 \newcommand{\M}{\mathcal{M}}
 \newcommand{\rG}{\mathcal{G}}
 
+\DeclareMathOperator{\Bor}{Bor}
 \DeclareMathOperator{\Spec}{Spec}
 \DeclareMathOperator{\res}{res}
 % \DeclareMathOperator{\Tr}{Tr}
@@ -155,6 +166,8 @@
 \DeclareMathOperator{\Ord}{Ord}
 \DeclareMathOperator{\pOrd}{p-Ord}
 \DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Par}{Par}
+\DeclareMathOperator{\Proj}{Proj}
 
 %----Analysis
 \newcommand{\summ}{\sum\limits}
@@ -168,7 +181,7 @@
 \let\div\relax
 \DeclareMathOperator{\div}{div}
 \newcommand{\brac}[1]{\langle#1\rangle}
-
+\newcommand{\pdvN}[3]{\frac{\partial^{#1} #2}{\partial #3^{#1}}}
 
 %---------ENVIRONMENTS-------------%
 
