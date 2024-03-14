@@ -59,6 +59,10 @@
 
 %-----------MACROS-----------%
 
+% Delimiters
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+
+
 \newcommand{\sub}{\subseteq}
 \newcommand{\lcm}{\text{lcm}}
 \newcommand{\mc}[1]{\mathcal{#1}}
@@ -115,6 +119,8 @@
 \newcommand{\Q}{\mathbb{Q}\xspace}
 \newcommand{\G}{\mathbb{G}\xspace}
 \newcommand{\T}{\mathbb{T}}
+\let\P\relax
+\DeclareMathOperator*{\P}{\mathbb{P}}
 
 \newcommand{\D}{\mathcal{D}}
 \renewcommand{\S}{\mathscr{S}}
@@ -124,6 +130,9 @@
 \newcommand{\M}{\mathcal{M}}
 \newcommand{\rG}{\mathcal{G}}
 
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator*{\argmin}{argmin} % no space, limits underneath in displays
+\DeclareMathOperator*{\argmax}{argmax}
 \DeclareMathOperator{\Bor}{Bor}
 \DeclareMathOperator{\Spec}{Spec}
 \DeclareMathOperator{\res}{res}
